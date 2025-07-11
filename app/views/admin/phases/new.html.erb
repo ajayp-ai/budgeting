@@ -1,0 +1,11 @@
+<% content_for :title, "New phase" %>
+
+<h1>New phase</h1>
+
+<%= render "form", admin_phase: @admin_phase %>
+
+<br>
+
+<div>
+  <%= link_to "Back to phases", admin_phases_path %>
+</div>

@@ -1,0 +1,22 @@
+<h1>Participatory Budgeting Dashboard</h1>
+
+<h2>Category Limits</h2>
+<% @categories.each do |cat| %>
+  <p><strong><%= cat.name %></strong></p>
+  <p>Allocated: <%= cat.allocated_amount %> / Limit: <%= cat.limit_amount %></p>
+  <progress value="<%= cat.allocated_amount %>" max="<%= cat.limit_amount %>"></progress>
+<% end %>
+
+<h2>Phases</h2>
+<% @phases.each do |phase| %>
+  <p><%= phase.name %> <% if phase.active? %><strong>(Active)</strong><% end %></p>
+<% end %>
+
+<h2>Projects with Impact</h2>
+<% @projects.each do |proj| %>
+  <p><strong><%= proj.title %></strong></p>
+  <ul>
+    <li>Beneficiaries: <%= proj.impact_metric&.estimated_beneficiaries %></li>
+    <li>Sustainability Score: <%= proj.impact_metric&.sustainability_score %></li>
+  </ul>
+<% end %>

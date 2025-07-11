@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Budget categories" %>
+
+<h1>Budget categories</h1>
+
+<div id="admin_budget_categories">
+  <% @admin_budget_categories.each do |admin_budget_category| %>
+    <%= render admin_budget_category %>
+    <p>
+      <%= link_to "Show this budget category", admin_budget_category %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New budget category", new_admin_budget_category_path %>
